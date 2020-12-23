@@ -7,6 +7,7 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
     document.querySelectorAll(".drum")[i].addEventListener("click",function(){
     var buttonInnerHTML=this.innerHTML;
     whichKey(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
     });
 }
 
@@ -14,8 +15,9 @@ for(var i=0;i<document.querySelectorAll(".drum").length;i++){
 
 // var audio=new Audio("/sounds/tom-1.mp3");
 // audio.play();  
-document.addEventListener("keypress",function(event){
+document.addEventListener("keydown",function(event){
     whichKey(event.key);
+    buttonAnimation(event.Key);
 });
 
 function whichKey(key){
@@ -55,5 +57,11 @@ function whichKey(key){
         }
 
 }
-
+function buttonAnimation(currentKey){
+ var activeButton=document.querySelector("."+currentKey);
+ activeButton.classList.add("pressed");
+ setTimeout(function(){
+     activeButton.classList.remove("pressed");
+ }, 100);
+}
 
