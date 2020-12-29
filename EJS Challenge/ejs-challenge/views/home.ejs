@@ -5,7 +5,10 @@
 <% console.log(posts); %>
 
 <% posts.forEach(function(post){  %>
-<%   console.log(posts.title);      %>
+
+<h1><%= post.title%></h1>
+<p><%= post.content%></p>
+
 <% }) %>
 
 
