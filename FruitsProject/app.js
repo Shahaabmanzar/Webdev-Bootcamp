@@ -15,8 +15,8 @@ const fruit= new Fruit({
     rating:7,
     review:"Pretty solid as a fruit."
 });
-fruit.save();
 
+// fruit.save();
 
 
 
@@ -31,7 +31,7 @@ const person= new Person({
     name:"John",
     age:37,
 });
-person.save();
+// person.save();
 
 const kiwi=new Fruit({
     name:"kiwi",
@@ -49,4 +49,20 @@ const banana= new Fruit({
     name: "Banana",
     score:3,
     review:"Weird texture"
+});
+
+// Fruit.insertMany([kiwi,orange,banana],function(err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("Succesfully saved all the fruits to fruitsDb");
+//     }
+// });
+
+Fruit.find(function(err,fruits){
+    if(err){
+        console.log(err);
+    }else{
+        console.log(fruits);
+    }
 });
