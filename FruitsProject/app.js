@@ -32,3 +32,21 @@ const person= new Person({
     age:37,
 });
 person.save();
+
+const kiwi=new Fruit({
+    name:"kiwi",
+    score:10,
+    review:"the best fruit"
+})
+
+const orange=new Fruit({
+    name:"Orange",
+    score:4,
+    review:"Too sour for me"
+})
+
+const banana= new Fruit({
+    name: "Banana",
+    score:3,
+    review:"Weird texture"
+});
