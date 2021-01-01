@@ -4,7 +4,11 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB",{useNewUrlParser: true, us
 
 const fruitSchema=new mongoose.Schema({
     name: String,
-    rating: Number,
+    rating: {
+        type: Number,
+        min:1,
+        max:10
+    },
     review: String
 });
 
@@ -12,11 +16,11 @@ const Fruit= mongoose.model("Fruit",fruitSchema);
 
 const fruit= new Fruit({
     name:"Apple",
-    rating:7,
+    rating:34,
     review:"Pretty solid as a fruit."
 });
 
-// fruit.save();
+fruit.save();
 
 
 
@@ -33,32 +37,6 @@ const person= new Person({
 });
 // person.save();
 
-const kiwi=new Fruit({
-    name:"kiwi",
-    score:10,
-    review:"the best fruit"
-})
-
-const orange=new Fruit({
-    name:"Orange",
-    score:4,
-    review:"Too sour for me"
-})
-
-const banana= new Fruit({
-    name: "Banana",
-    score:3,
-    review:"Weird texture"
-});
-
-// Fruit.insertMany([kiwi,orange,banana],function(err){
-//     if(err){
-//         console.log(err);
-//     }else{
-//         console.log("Succesfully saved all the fruits to fruitsDb");
-//     }
-// });
-
 Fruit.find(function(err,fruits){
     if(err){
         console.log(err);
@@ -71,3 +49,10 @@ Fruit.find(function(err,fruits){
         console.log(fruits);
     }
 });
+// Person.deleteMany({name:"John"},function(err){
+//     if(err){
+//         console.log(err);
+//     }else{
+//         console.log("succesfully deleted");
+//     }
+// });
